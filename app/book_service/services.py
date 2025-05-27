@@ -10,7 +10,7 @@ class BookService:
             displayer: BookDisplayer,
             printer: BookPrinter,
             serializer: BookSerializer,
-    ):
+    ) -> None:
         self.displayer = displayer
         self.printer = printer
         self.serializer = serializer

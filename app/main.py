@@ -1,6 +1,18 @@
-from app.book_service.displayers import ConsoleDisplayer, ReverseDisplayer, DummyDisplayer
-from app.book_service.printers import ConsolePrinter, ReversePrinter, DummyPrinter
-from app.book_service.serializers import JsonSerializer, XmlSerializer, DummySerializer
+from app.book_service.displayers import (
+    ConsoleDisplayer,
+    ReverseDisplayer,
+    DummyDisplayer
+)
+from app.book_service.printers import (
+    ConsolePrinter,
+    ReversePrinter,
+    DummyPrinter
+)
+from app.book_service.serializers import (
+    JsonSerializer,
+    XmlSerializer,
+    DummySerializer
+)
 from app.book_service.services import BookService
 from book_service.books import Book
 
@@ -13,7 +25,11 @@ def main(book: Book, commands: list[tuple[str, str]]) -> None | str:
                 "reverse": ReverseDisplayer(),
             }
             displayer = displayer_map[method_type]
-            service = BookService(displayer=displayer, printer=DummyPrinter(), serializer=DummySerializer())
+            service = BookService(
+                displayer=displayer,
+                printer=DummyPrinter(),
+                serializer=DummySerializer()
+            )
             service.display(book)
 
         elif cmd == "print":
@@ -22,7 +38,11 @@ def main(book: Book, commands: list[tuple[str, str]]) -> None | str:
                 "reverse": ReversePrinter(),
             }
             printer = printer_map[method_type]
-            service = BookService(displayer=DummyDisplayer(), printer=printer, serializer=DummySerializer())
+            service = BookService(
+                displayer=DummyDisplayer(),
+                printer=printer,
+                serializer=DummySerializer()
+            )
             service.print_book(book)
 
         elif cmd == "serialize":
@@ -31,7 +51,11 @@ def main(book: Book, commands: list[tuple[str, str]]) -> None | str:
                 "xml": XmlSerializer(),
             }
             serializer = serializer_map[method_type]
-            service = BookService(displayer=DummyDisplayer(), printer=DummyPrinter(), serializer=serializer)
+            service = BookService(
+                displayer=DummyDisplayer(),
+                printer=DummyPrinter(),
+                serializer=serializer
+            )
             return service.serialize(book)
 
         else:
