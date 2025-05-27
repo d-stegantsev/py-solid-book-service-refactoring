@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from app.book_service.books import Book
+from app.books import Book
 
 
 class BookDisplayer(ABC):

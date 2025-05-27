@@ -1,7 +1,7 @@
-from app.book_service.books import Book
-from app.book_service.displayers import BookDisplayer
-from app.book_service.printers import BookPrinter
-from app.book_service.serializers import BookSerializer
+from app.books import Book
+from app.displayers import BookDisplayer
+from app.printers import BookPrinter
+from app.serializers import BookSerializer
 
 
 class BookService:

@@ -1,20 +1,20 @@
-from app.book_service.displayers import (
+from app.displayers import (
     ConsoleDisplayer,
     ReverseDisplayer,
     DummyDisplayer
 )
-from app.book_service.printers import (
+from app.printers import (
     ConsolePrinter,
     ReversePrinter,
     DummyPrinter
 )
-from app.book_service.serializers import (
+from app.serializers import (
     JsonSerializer,
     XmlSerializer,
     DummySerializer
 )
-from app.book_service.services import BookService
-from book_service.books import Book
+from app.services import BookService
+from app.books import Book
 
 
 def main(book: Book, commands: list[tuple[str, str]]) -> None | str:
